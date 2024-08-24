@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Volunteer</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="header-title">Edit Volunteer</h1>
+        </header>
+        <main>
+            <section class="edit-volunteer">
+                <form action="/edit" method="post">
+                    <input type="hidden" name="id" value="<%= singleVolunteer.id %>">
+                    
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="<%= singleVolunteer.name %>" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="<%= singleVolunteer.email %>" required>
+                    
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" value="<%= singleVolunteer.phone %>" required>
+                    
+                    <label for="skills">Skills:</label>
+                    <input type="text" id="skills" name="skills" value="<%= singleVolunteer.skills %>" required>
+                    
+                    <button type="submit">Save Changes</button>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

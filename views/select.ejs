@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Volunteer</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="header-title">Volunteer Details</h1>
+        </header>
+        <main>
+            <section class="view-details">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <td><%= singleVolunteer.name %></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><%= singleVolunteer.email %></td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td><%= singleVolunteer.phone %></td>
+                        </tr>
+                        <tr>
+                            <th>Skills</th>
+                            <td><%= singleVolunteer.skills %></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a class="button back-button" href="/">Back to List</a>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

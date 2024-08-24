@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Registration</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="header-title">Volunteer Registration</h1>
+        </header>
+        <main>
+            <section class="add-volunteer">
+                <h2>Add New Volunteer</h2>
+                <form action="/add" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter email" required>
+                    
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" placeholder="Enter phone" required>
+                    
+                    <label for="skills">Skills:</label>
+                    <input type="text" id="skills" name="skills" placeholder="Enter skills" required>
+                    
+                    <button type="submit">Add Volunteer</button>
+                </form>
+            </section>
+
+            <section class="volunteer-list">
+                <h2>Volunteer List</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Skills</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% volunteers.forEach(v => { %>
+                            <tr>
+                                <td><%= v.id %></td>
+                                <td><%= v.name %></td>
+                                <td><%= v.email %></td>
+                                <td><%= v.phone %></td>
+                                <td><%= v.skills %></td>
+                                <td>
+                                    <a class="button action-button" href="/update/<%= v.id %>">Edit</a>
+                                    <a class="button action-button" href="/delete/<%= v.id %>">Delete</a>
+                                    <a class="button action-button" href="/view/<%= v.id %>">View</a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
