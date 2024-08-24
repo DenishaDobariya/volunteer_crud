@@ -7,131 +7,151 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f2f2f2;
     color: #333;
-    padding: 20px;
-}
-
-.container {
-    max-width: 800px;
-    margin: auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-header {
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 .header-title {
     color: #fff;
-    background-color: #333; /* Black background */
+    margin: 0;
     padding: 15px;
-    border-radius: 5px;
-    font-size: 24px;
+    background-color: #333;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
 }
 
 main {
-    padding: 20px;
+    margin-top: 20px;
 }
 
 section {
-    margin-bottom: 30px;
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
+    margin-bottom: 20px;
     color: #333;
-    font-size: 20px;
-    margin-bottom: 20px;
 }
 
-form {
-    margin-bottom: 20px;
-}
-
-label {
+form label {
     display: block;
-    margin: 10px 0 5px;
-    color: #333;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-input[type="text"],
-input[type="email"] {
-    width: 100%;
+form input {
+    width: calc(100% - 22px);
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #333; /* Black background */
-    color: #fff;
+form button {
+    background: #333;
     border: none;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-    background-color: #444; /* Slightly lighter black on hover */
+form button:hover {
+    background: #555;
+    transform: scale(1.05);
+}
+
+button.back-button {
+    background: #666;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button.back-button:hover {
+    background: #444;
+    transform: scale(1.05);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
 }
 
-th, td {
-    padding: 12px;
+table th, table td {
+    padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border: 1px solid #ddd;
 }
 
-th {
-    background-color: #333; /* Black background */
+table th {
+    background: #333;
     color: #fff;
 }
 
-td {
-    background-color: #fff;
+table tr:nth-child(even) {
+    background: #f9f9f9;
 }
 
-tr:nth-child(even) td {
-    background-color: #f9f9f9;
+table tr:hover {
+    background: #e0e0e0;
 }
 
-a.button {
-    display: inline-block;
-    padding: 8px 12px;
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
     color: #333;
+}
+
+.card p {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.card a {
+    color: #007bff;
     text-decoration: none;
-    border: 1px solid #333;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-a.button:hover {
-    background-color: #333;
-    color: #fff;
+.card a:hover {
+    text-decoration: underline;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
     table {
         font-size: 14px;
     }
 
-    button, a.button {
-        padding: 8px 12px;
+    form button {
+        padding: 8px 15px;
         font-size: 14px;
     }
 }
@@ -141,8 +161,8 @@ a.button:hover {
         font-size: 12px;
     }
 
-    button, a.button {
-        padding: 6px 10px;
+    form button {
+        padding: 6px 12px;
         font-size: 12px;
     }
 }

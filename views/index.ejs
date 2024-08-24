@@ -31,7 +31,7 @@
                 </form>
             </section>
 
-            <section class="volunteer-list">
+            <section class="volunteer-list">        
                 <h2>Volunteer List</h2>
                 <table>
                     <thead>
@@ -54,7 +54,7 @@
                                 <td><%= v.skills %></td>
                                 <td>
                                     <a class="button action-button" href="/update/<%= v.id %>">Edit</a>
-                                    <a class="button action-button" href="/delete/<%= v.id %>">Delete</a>
+                                    <a class="button action-button delete" href="/delete/<%= v.id %>">Delete</a>
                                     <a class="button action-button" href="/view/<%= v.id %>">View</a>
                                 </td>
                             </tr>

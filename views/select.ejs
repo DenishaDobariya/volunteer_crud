@@ -13,27 +13,14 @@
         </header>
         <main>
             <section class="view-details">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Name</th>
-                            <td><%= singleVolunteer.name %></td>
-                        </tr>
-                        <tr>
-                            <th>Email</th>
-                            <td><%= singleVolunteer.email %></td>
-                        </tr>
-                        <tr>
-                            <th>Phone</th>
-                            <td><%= singleVolunteer.phone %></td>
-                        </tr>
-                        <tr>
-                            <th>Skills</th>
-                            <td><%= singleVolunteer.skills %></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <a class="button back-button" href="/">Back to List</a>
+                <div class="card">
+                    <h3>Volunteer Details</h3>
+                    <p><strong>Name:</strong> <%= singleVolunteer.name %></p>
+                    <p><strong>Email:</strong> <%= singleVolunteer.email %></p>
+                    <p><strong>Phone:</strong> <%= singleVolunteer.phone %></p>
+                    <p><strong>Skills:</strong> <%= singleVolunteer.skills %></p>
+                    <a class="button back-button" href="/">Back to List</a>
+                </div>
             </section>
         </main>
     </div>
