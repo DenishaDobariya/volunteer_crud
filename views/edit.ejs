@@ -14,7 +14,7 @@
         <main>
             <section class="edit-volunteer">
                 <form action="/edit" method="post">
-                    <input type="hidden" name="id" value="<%= singleVolunteer.id %>">
+                    <input type="hidden" name="id" value="<%= singleVolunteer._id %>">
                     
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" value="<%= singleVolunteer.name %>" required>

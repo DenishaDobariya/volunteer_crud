@@ -1,74 +1,55 @@
-let volunteerStore = [];
+const volunteerModel = require('../models/volunteerModel');
 
-const defaultCon = (req, res) => {
-    res.render('index', { volunteers: volunteerStore });
+const defaultCon = async(req, res) => {
+    let data =await volunteerModel.find({});
+    console.log("data",data);
+    res.render('index', { volunteers: data });
 };
 
-const addCon = (req, res) => {
+const addCon = async(req, res) => {
     console.log("Volunteer added..");
-    console.log("body", req.body.volunteer);
-
-    const volunteerObj = {
-        id: volunteerStore.length + 1,
+    console.log("body", req.body);
+    let data ={
         name: req.body.name,
         email: req.body.email,
         phone: req.body.phone,
-        skills: req.body.skills
-    };
-
-    volunteerStore.push(volunteerObj);
-
-    console.log("Store", volunteerStore);
-    
+        skills: req.body.skills,
+        complete: false
+    }
+    let volunteerM =new volunteerModel(data);
+    await volunteerM.save();
+    console.log("Added data??", volunteerM);
     res.redirect('/');
 };
 
-const updateCon = (req, res) => {
+const updateCon = async(req, res) => {
     console.log("id", req.params);
-
     const { id } = req.params;
-
-    const singleVolunteer = volunteerStore.find(v => {
-        return v.id == id;
-    });
-
-    console.log("single Rec", singleVolunteer);
-    
+    const singleVolunteer = await volunteerModel.findOne({_id:id});
+    console.log("single Rec??", singleVolunteer);
     res.render('edit', { singleVolunteer });
 };
 
-const editCon = (req, res) => {
+const editCon = async(req, res) => {
     console.log("EDIT..");
-
-    const { id, name, email, phone, skills } = req.body;
-
-    volunteerStore = volunteerStore.map(v =>
-        v.id == id ? { ...v, name, email, phone, skills } : v
-    );
-
-    console.log("Updated Store", volunteerStore);
-
+    let updatedVolunteeer= await volunteerModel.findByIdAndUpdate(req.body.id, req.body, {new:true});
+    console.log("Updated Store", updatedVolunteeer);
     res.redirect('/');
 };
 
-const deleteCon = (req, res) => {
+const deleteCon = async(req, res) => {
     console.log("Delete..");
-
     const { id } = req.params;
-    volunteerStore = volunteerStore.filter(v => v.id != id);
-
-    console.log("Updated Store After Deletion", volunteerStore);
-
+    let deletedVolunteer= await volunteerModel.findByIdAndDelete(id)
+    console.log("Updated Store After Deletion", deletedVolunteer);
     res.redirect('/');
 };
 
-const viewCon = (req, res) => {
+const viewCon = async(req, res) => {
     console.log("View..");
-
     const { id } = req.params;
-    const singleVolunteer = volunteerStore.find(v => v.id == id);
-
-    res.render('select', { singleVolunteer });
+    const viewVolunteer =await volunteerModel.findOne({_id:id})
+    res.render('select', { viewVolunteer });
 };
 
 module.exports = { defaultCon, addCon, updateCon, editCon, deleteCon, viewCon };

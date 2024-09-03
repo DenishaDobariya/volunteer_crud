@@ -16,16 +16,16 @@
                 <h2>Add New Volunteer</h2>
                 <form action="/add" method="post">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter name" required>
+                    <input type="text" id="name" name="name" placeholder="Enter name">
                     
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter email" required>
+                    <input type="email" id="email" name="email" placeholder="Enter email">
                     
                     <label for="phone">Phone:</label>
-                    <input type="text" id="phone" name="phone" placeholder="Enter phone" required>
+                    <input type="text" id="phone" name="phone" placeholder="Enter phone">
                     
                     <label for="skills">Skills:</label>
-                    <input type="text" id="skills" name="skills" placeholder="Enter skills" required>
+                    <input type="text" id="skills" name="skills" placeholder="Enter skills">
                     
                     <button type="submit">Add Volunteer</button>
                 </form>
@@ -45,17 +45,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% volunteers.forEach(v => { %>
+                        <% volunteers.forEach((v,index) => { %>
                             <tr>
-                                <td><%= v.id %></td>
+                                <td><%= index+1 %></td>
                                 <td><%= v.name %></td>
                                 <td><%= v.email %></td>
                                 <td><%= v.phone %></td>
                                 <td><%= v.skills %></td>
                                 <td>
-                                    <a class="button action-button" href="/update/<%= v.id %>">Edit</a>
-                                    <a class="button action-button delete" href="/delete/<%= v.id %>">Delete</a>
-                                    <a class="button action-button" href="/view/<%= v.id %>">View</a>
+                                    <a class="button action-button" href="/update/<%= v._id %>">Edit</a> ||
+                                    <a class="button action-button delete" href="/delete/<%= v._id %>">Delete</a> ||
+                                    <a class="button action-button" href="/view/<%= v._id %>">View</a>
                                 </td>
                             </tr>
                         <% }) %>
